@@ -1,0 +1,49 @@
+@startuml
+
+package "BibliotecaDigital" {
+
+
+class Usuario{
+id_user:int
+nombre:string
+email:string
+reseña:text
+reservados_libros:list
+}
+
+class Libro{
+id_libro:int
+titulo:string
+precio:float
+}
+
+class Reseña{
+id_reseña:int
+libro:string
+usuario:string
+contenido:text
+} 
+
+class Autor{
+id_autor:int
+nombre:string
+libros:array
+}
+
+class Categoria{
+id_categoria:int
+nombre:string
+libros:array
+}
+
+
+Usuario "1" -- "0..*" Libro 
+Usuario "1" -- "0..*" Reseña  
+Libro "1" -- "0..*" Categoria 
+
+Reseña "1" -- "1" Libro 
+Autor "1" -- "0..*" Libro 
+ 
+ 
+} 
+@enduml
